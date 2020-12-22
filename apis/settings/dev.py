@@ -27,7 +27,6 @@ ALLOWED_HOSTS = re.sub(
 # You need to allow '10.0.0.0/8' for service health checks.
 ALLOWED_CIDR_NETS = ["10.0.0.0/8", "127.0.0.0/8"]
 
-INSTALLED_APPS += ["oebl_irs_workflow"]
 
 SECRET_KEY = (
     "d3j@454545()(/)@zlck/6dsaf*#sdfsaf*#sadflj/6dsfk-11$)d6ixcvjsdfsdf&-u35#ayi"
