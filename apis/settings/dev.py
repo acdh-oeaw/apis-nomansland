@@ -21,7 +21,7 @@ ALLOWED_HOSTS = re.sub(
     r"https?://",
     "",
     os.environ.get(
-        "GITLAB_ENVIRONMENT_URL", os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1")
+        "ALLOWED_HOSTS", os.environ.get("GITLAB_ENVIRONMENT_URL", "localhost,127.0.0.1")
     ),
 ).split(",")
 # You need to allow '10.0.0.0/8' for service health checks.
