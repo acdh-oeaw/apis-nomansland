@@ -53,6 +53,16 @@ APIS_BIBSONOMY = [{
    'group': '4400472'
 }]
 
+APIS_BIBSONOMY_FIELDS = [
+    "name",
+    "first_name",
+    "gender",
+    "start_date_written",
+    "end_date_written",
+    "profession",
+    "kind",
+]
+
 
 # APIS_COMPONENTS = ['deep learning']
 
