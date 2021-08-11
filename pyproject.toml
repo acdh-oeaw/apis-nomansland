@@ -45,6 +45,7 @@ acdh-django-charts = "^0.5.3"
 pandas = "0.25.3"
 django-allow-cidr = "^0.3.1"
 mysqlclient = "^2.0.2"
+apis-bibsonomy = "^0.2.2"
 
 [tool.poetry.dev-dependencies]
 black = "^20.8b1"

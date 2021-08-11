@@ -43,6 +43,16 @@ DATABASES["default"] = dj_database_url.config(conn_max_age=600)
 
 LANGUAGE_CODE = "de"
 
+INSTALLED_APPS += ['apis_bibsonomy']
+
+APIS_BIBSONOMY = [{
+   'type': 'zotero', #or zotero
+   'url': 'https://api.zotero.org', #url of the bibsonomy instance or zotero.org
+   'user': os.environ.get('APIS_BIBSONOMY_USER'), #for zotero use the user id number found in settings
+   'API key': os.environ.get('APIS_BIBSONOMY_PASSWORD'),
+   'group': '4400472'
+}]
+
 
 # APIS_COMPONENTS = ['deep learning']
 
