@@ -16,6 +16,11 @@ BIRTH_REL_NAME = "place of birth"
 DEATH_REL_NAME = "place of death"
 APIS_BASE_URI = "https://nomansland.acdh.oeaw.ac.at/"
 
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.IsAuthenticated",
+    )
+}
 
 ALLOWED_HOSTS = re.sub(
     r"https?://",
