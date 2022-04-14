@@ -19,8 +19,8 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/l
 #RUN /bin/bash -c "source $HOME/.poetry/env"
 # [Optional] If your requirements rarely change, uncomment this section to add them to the image.
 USER vscode
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-ENV PATH "/home/vscode/.poetry/bin:$PATH"
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+ENV PATH "/home/vscode/.local/bin:$PATH"
 #RUN cd /tmp/pip-tmp && curl -sSL 'https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py' | python && /bin/bash -c "source $HOME/.poetry/env" 
 #&& poetry install && rm -rf /tmp/pip-tmp
 # RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
