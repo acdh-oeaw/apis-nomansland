@@ -55,7 +55,7 @@ APIS_BIBSONOMY = [{
    'url': 'https://api.zotero.org', #url of the bibsonomy instance or zotero.org
    'user': os.environ.get('APIS_BIBSONOMY_USER'), #for zotero use the user id number found in settings
    'API key': os.environ.get('APIS_BIBSONOMY_PASSWORD'),
-   'group': '4400472'
+   'group': '2801369'
 }]
 
 APIS_BIBSONOMY_FIELDS = [
@@ -75,3 +75,169 @@ APIS_BIBSONOMY_FIELDS = [
 
 
 APIS_RELATIONS_FILTER_EXCLUDE += ["annotation", "annotation_set_relation"]
+
+APIS_ENTITIES = {
+    "Place": {
+        "merge": True,
+        "search": ["name"],
+        "form_order": ["name", "kind", "lat", "lng", "status", "collection"],
+        "table_fields": ["name"],
+        "additional_cols": ["id", "lat", "lng", "part_of"],
+        "list_filters": [
+            {"name": {"method": "name_label_filter"}},
+            {"collection": {"label": "Collection"}},
+            {"kind": {"label": "Kind of Place"}},
+            "related_entity_name",
+            "related_relationtype_name",
+            "lat",
+            "lng",
+        ],
+    },
+    "Person": {
+        "merge": True,
+        "search": ["name", "first_name"],
+        "form_order": [
+            "first_name",
+            "name",
+            "start_date_written",
+            "end_date_written",
+            "profession",
+            "status",
+            "collection",
+        ],
+        "table_fields": [
+            "name",
+            "first_name",
+            "start_date_written",
+            "end_date_written",
+        ],
+        "additional_cols": ["id", "profession", "gender"],
+        "list_filters": [
+            "name",
+            {"gender": {"label": "Gender"}},
+            {"start_date": {"label": "Date of Birth"}},
+            {"end_date": {"label": "Date of Death"}},
+            {"profession": {"label": "Profession"}},
+            {"title": {"label": "Title"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
+        ],
+    },
+    "Institution": {
+        "merge": True,
+        "search": ["name"],
+        "form_order": [
+            "name",
+            "start_date_written",
+            "end_date_written",
+            "kind",
+            "status",
+            "collection",
+        ],
+        "additional_cols": [
+            "id",
+            "kind",
+        ],
+        "list_filters": [
+            {"name": {"label": "Name or label of institution"}},
+            {"kind": {"label": "Kind of Institution"}},
+            {"start_date": {"label": "Date of foundation"}},
+            {"end_date": {"label": "Date of termination"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
+        ],
+    },
+    "Work": {
+        "merge": True,
+        "search": ["name"],
+        "additional_cols": [
+            "id",
+            "kind",
+        ],
+        "list_filters": [
+            {"name": {"label": "Name of work"}},
+            {"kind": {"label": "Kind of Work"}},
+            {"start_date": {"label": "Date of creation"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
+        ],
+    },
+    "Event": {
+        "merge": True,
+        "search": ["name"],
+        "additional_cols": [
+            "id",
+        ],
+        "list_filters": [
+            {"name": {"label": "Name of event"}},
+            {"kind": {"label": "Kind of Event"}},
+            {"start_date": {"label": "Date of beginning"}},
+            {"end_date": {"label": "Date of end"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
+        ],
+    },
+    "Manuscript": {
+        "merge": True,
+        "search": ["identifier", "name"],
+        "form_order": [
+            "identifier",
+            "name",
+            "start_date_written",
+            "extent",
+            "leaf_dimension",
+            "written_dimension",
+            "foliation_type",
+            "foliation_note",
+            "manuscript_conditions"
+        ],
+        "table_fields": [
+            "identifier",
+            "name",
+            "start_date_written",
+            "extent",
+        ],
+        "additional_cols": [
+            "id", 
+            "leaf_dimension",
+            "written_dimension",
+            "foliation_type",
+            "foliation_note",
+            "manuscript_conditions"],
+        "list_filters": [
+            "name",
+            {"start_date": {"label": "Date of writing"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
+        ],
+    },
+    "Expression": {
+        "merge": True,
+        "search": ["identifier", "name"],
+        "form_order": [
+            "title",
+            "locus",
+            'language'
+        ],
+        "table_fields": [
+            "title",
+            "locus",
+            'language'
+        ],
+        "additional_cols": [
+            "id", 
+            ],
+        "list_filters": [
+            "title",
+            {"start_date": {"label": "Date of writing"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
+        ],
+    },
+}
