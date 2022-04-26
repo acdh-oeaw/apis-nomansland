@@ -219,6 +219,7 @@ APIS_ENTITIES = {
     "Expression": {
         "merge": True,
         "search": ["identifier", "name"],
+        "form_exclude": ["name", "start_date_written", "end_date_written", "status"],
         "form_order": [
             "title",
             "locus",
