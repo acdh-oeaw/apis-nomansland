@@ -48,7 +48,7 @@ DATABASES["default"] = dj_database_url.config(conn_max_age=600)
 
 LANGUAGE_CODE = "de"
 
-INSTALLED_APPS += ['apis_bibsonomy']
+INSTALLED_APPS += ['apis_bibsonomy', 'apis_highlighter']
 
 APIS_BIBSONOMY = [{
    'type': 'zotero', #or zotero
