@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4d7a0501f9a4c6803d312cc100db0c582b4f4d559cd9df658ca2efba4eb31ef4"
+            "sha256": "ff498752252ca3b94cb5aefe888c906fcaf7ed3c0432c1802f8582766fa39e76"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,14 @@
         ]
     },
     "default": {
+        "acdh-django-charts": {
+            "hashes": [
+                "sha256:c9ecf3407e60a4401df5d35b1fae4de03ba659579783de592f21c3857f4f113b",
+                "sha256:d231c52327e079fee77410f65acab0e4c934b49e7ca03979cc9d4589f504fd1b"
+            ],
+            "index": "pypi",
+            "version": "==0.5.3"
+        },
         "anytree": {
             "hashes": [
                 "sha256:14c55ac77492b11532395049a03b773d14c7e30b22aa012e337b1e983de31521",
@@ -1005,7 +1013,7 @@
                 "sha256:6f62d78e2f89b4500b080fe3a81690850cd254227f27f75c3a0c491a1f351ba7",
                 "sha256:e8443a5e7a020e9d7f97f1d7d9cd17c88bcb3bc7e218bf9cf5095fe550be2951"
             ],
-            "markers": "python_full_version >= '3.6.1' and python_full_version < '4.0.0'",
+            "markers": "python_version < '4.0' and python_full_version >= '3.6.1'",
             "version": "==5.10.1"
         },
         "jinja2": {
@@ -1407,7 +1415,7 @@
                 "sha256:30d54c0b914e595f3d10a87888599eab5321a2a69abc773bbefff51599b72db6",
                 "sha256:905cf92c2111ef80d355708f47ac24ad1b6fc2adc5107455940088c9bbecaedb"
             ],
-            "markers": "python_version >= '3.6' and python_full_version < '4.0.0'",
+            "markers": "python_version >= '3.6' and python_version < '4.0'",
             "version": "==0.10.2"
         },
         "typed-ast": {
@@ -1445,7 +1453,7 @@
                 "sha256:6657594ee297170d19f67d55c05852a874e7eb634f4f753dbd667855e07c1708",
                 "sha256:f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"
             ],
-            "markers": "python_version >= '3.7'",
+            "markers": "python_version < '3.10'",
             "version": "==4.2.0"
         },
         "urllib3": {
@@ -1637,7 +1645,7 @@
                 "sha256:c8d34eca9fda3f4dfbe59f57f3cf0f3641af3eefbf1544fbeb9b3bacf82c580a",
                 "sha256:d574cbfaf0a349df466c91f7f81b22460ae5ebb15ecb8bf9411d6049923aee8d"
             ],
-            "markers": "python_full_version >= '3.6.2' and python_full_version < '4.0.0'",
+            "markers": "python_version < '4.0' and python_full_version >= '3.6.2'",
             "version": "==2.1.0"
         }
     }

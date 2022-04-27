@@ -1,4 +1,12 @@
 [[package]]
+name = "acdh-django-charts"
+version = "0.5.3"
+description = "An app to explore your data through charts based on Highcharts.js"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "aiofiles"
 version = "0.8.0"
 description = "File support for asyncio."
@@ -1571,9 +1579,13 @@ termcolor = ">=1.1.0,<2.0.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.8"
-content-hash = "ddf047235263c35a6531e91a8640d39dbc9bcb1d47112d50a0f41c7b425d23c3"
+content-hash = "c91ce8dc0ffdc8dc09bac2d5bce2e4ef9d7ecb716241bf7e35ac41d970705503"
 
 [metadata.files]
+acdh-django-charts = [
+    {file = "acdh-django-charts-0.5.3.tar.gz", hash = "sha256:c9ecf3407e60a4401df5d35b1fae4de03ba659579783de592f21c3857f4f113b"},
+    {file = "acdh_django_charts-0.5.3-py2.py3-none-any.whl", hash = "sha256:d231c52327e079fee77410f65acab0e4c934b49e7ca03979cc9d4589f504fd1b"},
+]
 aiofiles = [
     {file = "aiofiles-0.8.0-py3-none-any.whl", hash = "sha256:7a973fc22b29e9962d0897805ace5856e6a566ab1f0c8e5c91ff6c866519c937"},
     {file = "aiofiles-0.8.0.tar.gz", hash = "sha256:8334f23235248a3b2e83b2c3a78a22674f39969b96397126cc93664d9a901e59"},
