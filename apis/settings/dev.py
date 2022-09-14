@@ -48,7 +48,7 @@ DATABASES["default"] = dj_database_url.config(conn_max_age=600)
 
 LANGUAGE_CODE = "de"
 
-INSTALLED_APPS += ['apis_bibsonomy', 'apis_highlighter']
+#INSTALLED_APPS += ['apis_bibsonomy', 'apis_highlighter']
 
 APIS_BIBSONOMY = [{
    'type': 'zotero', #or zotero
@@ -227,6 +227,32 @@ APIS_ENTITIES = {
         "list_filters": [
             "title",
             {"start_date": {"label": "Date of writing"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
+        ],
+    },
+    "Manuscriptpart": {
+        "merge": True,
+        "search": ["identifier", "name"],
+        "form_order": [
+            "identifier",
+            "name",
+            "locus",
+            "type"
+        ],
+        "table_fields": [
+            "identifier",
+            "name",
+            "locus",
+            "type"
+        ],
+        "additional_cols": [
+            "id" 
+            ],
+        "list_filters": [
+            "name",
+            "type",
             {"collection": {"label": "Collection"}},
             "related_entity_name",
             "related_relationtype_name",
