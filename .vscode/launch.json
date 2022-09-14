@@ -12,7 +12,10 @@
             "args": [
                 "runserver"
             ],
-            "django": true
+            "django": true,
+            "env": {
+                "DATABASE_URL": "mysql://apis:apis@127.0.0.1:3306/apis"
+            }
         },
         {
 				"name": "Nomansland remote Jupyter",

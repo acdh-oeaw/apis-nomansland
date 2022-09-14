@@ -3,10 +3,20 @@
 // Update the VARIANT arg in docker-compose.yml to pick a Python version: 3, 3.8, 3.7, 3.6 
 {
 	"name": "Python 3.6 & Apis-core & mariadb",
-	"dockerComposeFile": "docker-compose.yml",
-	"service": "app",
-	"workspaceFolder": "/workspace",
 	// Set *default* container specific settings.json values on container create.
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		"args": { 
+			// Update 'VARIANT' to pick a Python version: 3, 3.10, 3.9, 3.8, 3.7, 3.6
+			// Append -bullseye or -buster to pin to an OS version.
+			// Use -bullseye variants on local on arm64/Apple Silicon.
+			"VARIANT": "3.8",
+			// Options
+			"NODE_VERSION": "none"
+		}
+	},
+	"containerUser": "vscode",
 	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
 		"python.pythonPath": "/usr/local/bin/python",
@@ -27,15 +37,27 @@
 	"extensions": [
 		"ms-python.python",
 		"mtxr.sqltools",
-		"mtxr.sqltools-driver-pg"
+		"mtxr.sqltools-driver-pg",
+		"mhutchie.git-graph",
+		"ms-azuretools.vscode-docker",
+		"GitHub.copilot"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
 		8000,
 		3306
 	],
+	"mounts": [
+		"source=/var/home/sennierer/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+	  ],
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,Z",
+	"runArgs": [
+	  //"--userns=keep-id",
+	  "--pod=nomansland-dev"
+	  //"--env-file=.devcontainer/development.env"
+	],
 	"remoteEnv": {
-		"DATABASE_URL": "mysql://root:mariadb@db:3306/apisdb",
+		"DATABASE_URL": "mysql://apis:apis@127.0.0.1:3306/apis",
 		"APIS_BIBSONOMY_USER": "2658719",
 		"APIS_BIBSONOMY_PASSWORD": "NqQHdypNbEOolyaFJkyKeel2"
 	},
