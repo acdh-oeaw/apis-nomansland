@@ -7,4 +7,4 @@ echo "$DJANGO_SETTINGS_MODULE"
 echo "$DATABASE_URL"
 python manage.py collectstatic --noinput --settings=apis.settings.dev
 python manage.py migrate --settings=apis.settings.dev
-gunicorn apis.wsgi
+gunicorn apis.wsgi --timeout 120 --workers=3 --threads=3 --worker-connections=1000
