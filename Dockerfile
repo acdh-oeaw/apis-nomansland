@@ -31,6 +31,7 @@ ENV PYTHONPATH=/app
 
 # chown all the files to the app user
 RUN chown -R app:app $HOME
+RUN chown -R app /app
 RUN chown -R app /usr/local
 
 # change to the app user
