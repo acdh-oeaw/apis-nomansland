@@ -2,3 +2,6 @@
 	branch = main
 	path = apis_core_submodule
 	url = ../apis-core-nomansland.git
+[submodule "apis_bibsonomy_submodule"]
+	path = apis-bibsonomy
+	url = https://github.com/acdh-oeaw/apis-bibsonomy.git
