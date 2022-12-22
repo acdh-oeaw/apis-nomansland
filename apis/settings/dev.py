@@ -175,7 +175,7 @@ APIS_ENTITIES = {
     },
     "Manuscript": {
         "merge": True,
-        "search": ["identifier", "name"],
+        "search": ["name"],
         "form_order": [
             "identifier",
             "name",
@@ -201,7 +201,7 @@ APIS_ENTITIES = {
             "foliation_note",
             "manuscript_conditions"],
         "list_filters": [
-            "name",
+            {"name": {"label": "Name of manuscript", "method": "string_wildcard_filter"}},
             {"start_date": {"label": "Date of writing"}},
             {"collection": {"label": "Collection"}},
             "related_entity_name",
@@ -226,7 +226,7 @@ APIS_ENTITIES = {
             "id", 
             ],
         "list_filters": [
-            "title",
+            {"title": {"label": "Title of expression", "method": "string_wildcard_filter"}},
             {"end_date": {"label": "Date of writing"}},
             {"collection": {"label": "Collection"}},
             "related_entity_name",
