@@ -59,7 +59,7 @@ APIS_BIBSONOMY = [{
    'group': '2801369'
 }]
 
-
+#APIS_BIBSONOMY_FIELDS = ['name']
 
 # APIS_COMPONENTS = ['deep learning']
 
@@ -211,7 +211,7 @@ APIS_ENTITIES = {
     "Expression": {
         "merge": True,
         "search": ["title", "locus"],
-        "form_exclude": ["name", "end_date_written", "status"],
+        "form_exclude": ["name", "start_date_written", "status"],
         "form_order": [
             "title",
             "locus",
@@ -227,7 +227,7 @@ APIS_ENTITIES = {
             ],
         "list_filters": [
             "title",
-            {"start_date": {"label": "Date of writing"}},
+            {"end_date": {"label": "Date of writing"}},
             {"collection": {"label": "Collection"}},
             "related_entity_name",
             "related_relationtype_name",
