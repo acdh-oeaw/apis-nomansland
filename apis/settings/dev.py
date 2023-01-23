@@ -48,7 +48,8 @@ DATABASES["default"] = dj_database_url.config(conn_max_age=600)
 
 LANGUAGE_CODE = "de"
 
-#INSTALLED_APPS += ['apis_bibsonomy', 'apis_highlighter']
+#INSTALLED_APPS += ["django_extensions"]
+INSTALLED_APPS += ['apis_bibsonomy', 'apis_highlighter']
 
 APIS_BIBSONOMY = [{
    'type': 'zotero', #or zotero
@@ -58,7 +59,7 @@ APIS_BIBSONOMY = [{
    'group': '2801369'
 }]
 
-
+#APIS_BIBSONOMY_FIELDS = ['name']
 
 # APIS_COMPONENTS = ['deep learning']
 
@@ -174,7 +175,7 @@ APIS_ENTITIES = {
     },
     "Manuscript": {
         "merge": True,
-        "search": ["identifier", "name"],
+        "search": ["name"],
         "form_order": [
             "identifier",
             "name",
@@ -200,7 +201,7 @@ APIS_ENTITIES = {
             "foliation_note",
             "manuscript_conditions"],
         "list_filters": [
-            "name",
+            {"name": {"label": "Name of manuscript", "method": "string_wildcard_filter"}},
             {"start_date": {"label": "Date of writing"}},
             {"collection": {"label": "Collection"}},
             "related_entity_name",
@@ -210,7 +211,7 @@ APIS_ENTITIES = {
     "Expression": {
         "merge": True,
         "search": ["title", "locus"],
-        "form_exclude": ["name", "end_date_written", "status"],
+        "form_exclude": ["name", "start_date_written", "status"],
         "form_order": [
             "title",
             "locus",
@@ -225,8 +226,8 @@ APIS_ENTITIES = {
             "id", 
             ],
         "list_filters": [
-            "title",
-            {"start_date": {"label": "Date of writing"}},
+            {"title": {"label": "Title of expression", "method": "string_wildcard_filter"}},
+            {"end_date": {"label": "Date of writing"}},
             {"collection": {"label": "Collection"}},
             "related_entity_name",
             "related_relationtype_name",
@@ -259,3 +260,20 @@ APIS_ENTITIES = {
         ],
     },
 }
+
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+sentry_sdk.init(
+    dsn="https://e41265a66f25498198c3cc9248620fef@sentry.acdh-dev.oeaw.ac.at/13",
+    integrations=[DjangoIntegration()],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
